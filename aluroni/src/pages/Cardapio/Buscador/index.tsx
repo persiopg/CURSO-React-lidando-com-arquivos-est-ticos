@@ -13,6 +13,7 @@ return (
         <input 
             value={busca}
             onChange={(event) => setBusca(event.target.value)}  
+            placeholder="Buscar"
         />
         <CgSearch 
             size={20}
