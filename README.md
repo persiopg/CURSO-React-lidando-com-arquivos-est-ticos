@@ -1,2 +1,1 @@
-# CURSO-React-lidando-com-arquivos-estáticos
- CURSO React: lidando com arquivos estáticos
+Projeto focado em estudo e pratica da formação react da alura 
