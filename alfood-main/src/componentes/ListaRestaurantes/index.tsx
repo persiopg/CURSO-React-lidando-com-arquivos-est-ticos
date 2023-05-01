@@ -1,13 +1,15 @@
+import { useEffect } from 'react';
 import IRestaurante from '../../interfaces/IRestaurante';
 import style from './ListaRestaurantes.module.scss';
 import Restaurante from './Restaurante';
+import axios from 'axios';
 
 const ListaRestaurantes = () => {
 
 	const restaurantes: IRestaurante[] = [
 		{
 			id: 1,
-			nome: "Lyllys Cafe",
+			nome: 'Lyllys Cafe',
 			pratos: [
 				{
 					id: 1,
@@ -37,7 +39,7 @@ const ListaRestaurantes = () => {
 		},
 		{
 			id: 2,
-			nome: "Sugiro Sushi",
+			nome: 'Sugiro Sushi',
 			pratos: [
 				{
 					id: 1,
@@ -59,7 +61,7 @@ const ListaRestaurantes = () => {
 		},
 		{
 			id: 3,
-			nome: "Cantina da Escola",
+			nome: 'Cantina da Escola',
 			pratos: [
 				{
 					id: 1,
@@ -87,12 +89,20 @@ const ListaRestaurantes = () => {
 				}
 			]
 		}
-	]
+	];
+
+	useEffect(() => {
+		//obter restaurantes
+		axios.get('http://localhost:8000/api/v1/restaurantes/')
+			.then(resposta => console.log(resposta)
+			);
+	}, []);
+
 
 	return (<section className={style.ListaRestaurantes}>
 		<h1>Os restaurantes mais <em>bacanas</em>!</h1>
 		{restaurantes?.map(item => <Restaurante restaurante={item} key={item.id} />)}
-	</section>)
-}
+	</section>);
+};
 
-export default ListaRestaurantes
+export default ListaRestaurantes;
